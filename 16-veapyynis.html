@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16-veapyynis</title>
+</head>
+<body>
+    <h1>Veapüünis</h1>
+    <h2>Sisesta arv vahemikkus 1-100</h2>
+    Arv: <input type="text" id="sisend"><br><br>
+    <button onclick="pyyaVigu()">Andmete kontroll</button>
+    <p id="tulemus"></p>
+    
+    <script>
+        function pyyaVigu(){
+            let htmlKood,arv;
+            htmlKood=document.getElementById("tulemus");
+            htmlKood.innerHTML="";
+            arv=document.getElementById("sisend").value;
+            //Püünis
+            try { // kirja kõikvõimalikud vead
+                if(arv=="") {throw " on tühi!";}
+                if(isNaN(arv)) {throw " pole arv!";}
+                arv=Number(arv); // tüübiteisendus String  --> number
+                if(arv<1) {throw " on liiga väike!"}
+                if(arv>100) {throw " on liiga suur!"}
+            } catch(viga) {
+                htmlKood.innerHTML="Sisend " + viga;
+                return; // tekkis viga, funktsioon lõpetab töö
+            }
+            // Andmed on korras
+            htmlKood.innerHTML="Andmed sobivad!";
+        }
+    </script>
+
+</body>
+</html>

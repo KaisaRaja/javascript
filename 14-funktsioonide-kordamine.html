@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14- Funktsioonide kordamine</title>
+</head>
+<body>
+    <h1>Funktsioonide kordamine</h1>
+    <form name="minuvorm">
+        <h3>Sisesta andmed</h3>
+        <label>Nimi</label>
+        <input type="text" name="nimi" value=""><br>
+        <label>Vanus</label>
+        <input type="text" name="vanus" placeholder="täisaastates" value=""><br>
+
+        <input type="button" name="nupp" value="Sisesta"
+        onclick="arvuta(this.form)">
+        </form>
+        <!-- tulemuste väljastamine-->
+        <p id="tervitus"></p>
+        <p id="eagrupp"></p>
+        <p id="aastad"></p>
+
+    <script>
+        /* 1. Tervita kasutajat nimeliselt
+        2. Väljasta kasutaja eagruppp (noor ja roheline, keskealine, elukogenud)
+        noor on <= 30, elukogenud > 60
+        3. Mitu aastat on jäänud veel 100.sünnipäevani*/
+
+        function vanusegrupp(age){
+            let eagrupp="";  // lokaalne muutuja
+            switch(true) {
+                case age <=30: 
+                eagrupp="noor"; break;
+                case age <=60:
+                eagrupp="keskealine"; break;
+                default:
+                eagrupp="elukogenud";
+            } return eagrupp;
+        } 
+        
+        function aastaid100ni(age){  // age on sisendparameeter
+                let sajani;
+            sajani = 100-age;
+            return sajani;
+            }
+
+        // PEAPROGRAMM
+        function arvuta(form){
+        let nimij=form.nimi.value;  // globaalne muutuja ehk kehtib igal pool
+        let vanusj=form.vanus.value;
+        let loendus=0;
+
+document.getElementById("tervitus").innerHTML="Tere, <b>" + nimij + "!</b> Sa oled " + vanusj + "-aastane.";
+document.getElementById("eagrupp").innerHTML="Oled " + vanusegrupp(vanusj) + ".";
+document.getElementById("aastad").innerHTML= "Sul on jäänud sajanda sünnipäevani veel " + aastaid100ni(vanusj) + " aastat!";
+        }
+    </script>
+    
+</body>
+</html>

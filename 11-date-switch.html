@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 - Date, Switch</title>
+</head>
+
+<body>
+    <h1> Date and switch</h1>
+    <script>
+        let today = new Date(); // tänane kuupäev, hetke kellaaeg
+        today = new Date(2025, 5, 25, 5, 45)    // oma kuupäeva ja kellaaja määramine
+        document.write(today + "<br>");
+
+        let dateNr = today.getDate(); // meetod, mis eraldab kuupäeva numbri kogu kuupäevast
+        document.write("Täna on selle kuu " + dateNr + ".päev. <br>");
+
+
+        // tänane nädalapäev
+        let weekdayNr = today.getDay(); // mitmes päev nädalas
+        document.write("Täna on selle nädala " + weekdayNr + " .päev.<br>");
+
+        // Tere kasutaja! Täna on teisipäev!! (eesti keeles)
+        // kasutades massiivi
+        let nadalapaevad = ["pühapäev", "esmaspäev", "teisipäev", "kolmapäev", "neljapäev", "reede", "laupäev"];
+        document.write("Tere kasutaja, täna on " + nadalapaevad[weekdayNr] + ".<br>");
+
+        // Switch / Mitmendvalik
+        document.write("<h2>Switch  /Mitmendvalik </h2>");
+        let nadalapaev;
+        switch(weekdayNr) {
+            case 1: nadalapaev = "esmaspäev"; break;
+            case 2: nadalapaev = "teisipäev"; break;
+            case 3: nadalapaev = "kolmapäev"; break;
+            case 4: nadalapaev = "neljapäev"; break;
+            case 5: nadalapaev = "reede"; break;
+            case 6: nadalapaev = "laupäev"; break;
+            default: nadalapaev = "pühapäev";            
+        }
+        document.write("Tere uuesti, kasutaja, täna on " + nadalapaev + ".<br>");
+
+ // Väljasta kuu nimetus eesti keeles
+ let mounthNr = today.getMonth(); //  meetod, mis eraldab kuu numbri 
+ document.write("Hetkel on selle aasta " + (mounthNr+1)+ ".kuu. <br>");
+ let kuud = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli" , "august",
+    "september", "oktoober", "november", "detsember"];
+    document.write("Täna on " + kuud [mounthNr] + ".<br>");
+    let kuu;
+ switch(mounthNr) {
+    case 0: kuu = "jaanuar"; break;
+    case 1: kuu = "veebruar"; break;
+    case 2: kuu = "märts"; break;
+    case 3: kuu = "aprill"; break;
+    case 4: kuu = "mai"; break;
+    case 5: kuu ="juuni"; break;
+    case 6: kuu ="juuli"; break;
+    case 7: kuu ="august"; break;
+    case 8: kuu ="september"; break;
+    case 9: kuu ="oktoober"; break;
+    case 10: kuu ="november"; break;
+    case 11: kuu = "detsember";
+    
+    
+
+
+
+
+    // praegu on ja kuu nimetus 
+ } document.write("Praegu on kuu nimega " + kuu + ".<br>");
+
+    </script>
+
+</body>
+
+</html>
+

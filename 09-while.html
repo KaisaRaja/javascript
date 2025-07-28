@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-While loop / tsükkel</title>
+</head>
+<body>
+    <h1>While loop-id / tsüklid</h1>
+    <h2>While loop ehk eelkontroll</h2>
+    <script>
+        let i= 1;
+        let n =5;
+        while (i <=n) {
+            document.write("Tsükli " + i + ". kordus.<br>");
+            i++;
+        }
+
+        document.write("<h2>Tagurpidi while kordus: </h2>");
+        i=3;
+        while(i > 0) {
+            document.write("Tsükli " + i + ". kordus.<br>");
+            i--;
+        }
+        document.write("<hr>");
+        i=-3;
+        while (i) {
+            document.write("Tsükli " + i + ". kordus.<br>");
+            i++;
+        }
+
+        document.write("<h2>Järelkontrolliga tsükkel /kordus: </h2>");
+        i=10;
+        do {
+            document.write("Tsükli " + i + ". kordus.<br>");
+            i-=2; // kahekaupa
+        } while (i>=0);
+
+        // kontrolli, kas muutuja i ei ole number
+        if(isNaN(i)) {
+            document.write(i + "ei ole number");
+         }
+         // kontrolli, kas muutuja i on number
+         if(!isNaN(i)) {
+            document.write(i + "on number");
+         }
+    
+        document.write("<h2>Arvude sisestamine </h2>");
+        /* Kasutaja sisestab arve, lõputunnuseks on * sisestamine. 
+        Loenda, mitu arvu sisestati. 
+        Summeeri kõik positiivsed arvud */ 
+        // Küsi arv
+        //kontrolli, kas sisestatud väärtus on arv - > summeerimine
+        // kui sisestati *, lõpeta
+        let arv;
+        let loendur = 0; // kui alustame, siis pole ühtegi korda sisestatud
+        let loendurPositiivsed = 0;
+        let summa = 0; // see on algselt ka null
+
+        do { 
+            arv = prompt("Sisesta arv; lõpetamiseks sisesta tärn");
+            if( !isNaN(arv)) {
+                loendur++; 
+                if (arv >0 ) { 
+                    loendurPositiivsed++;
+                    summa += parseInt(arv);
+                 }  
+        } 
+         } while ( arv != "*" );   
+
+         document.write("Sisestati " + loendur + " arvu; neist positiivseid oli " + loendurPositiivsed + " arvu. <br>");
+         document.write("Positiibsete arvude summa on " + summa + "<br>");
+
+    </script>
+</body>
+</html>

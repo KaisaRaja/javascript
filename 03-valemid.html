@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-Valemid</title>
+</head>
+
+<body>
+    <h1>Matemaatika</h1>
+    <h2>Valemid</h2>
+    <script>
+       
+        // kasutaja sisestab kaatetite pikkused ja programm arvutab hüpotenuusi 
+
+        let a, b, c;
+        a = parseInt(prompt("Sisesta esimese kaateti pikkus(täisarvuna).", 3));  // 3 on vaikeväärtus, oletusväärtus sinna taha numbrina
+        b = parseInt(prompt("Sisesta teise kaateti pikkus(täisarvuna).", 4));
+
+        document.write("1. kaateti pikkus on " + a + "cm.<br>");
+        document.write(" ja 2. kaateti pikkus on " + b + "cm.<br>");
+
+        let summa = a + b; 
+        document.write("Kaatetite pikkus on kokku " + summa + "cm.<br>");
+
+// hüpotenuusi arvutamine, kaatetite ruutude summa,  v**2 on ruudus
+
+c = a**2 + b**2;
+document.write("c="+ c+ "cm.<br>");
+//Variant 2 , match. meetod
+c = Math.pow(a,2) + Math.pow(b,2);
+document.write("c="+ c+ "cm.<br>");
+
+// hüpotenuusi arvutamine, ruutjuur
+c=Math.sqrt(c); // ruutjuure arvutamine
+document.write("Hüpotenuusi pikkus on: "+ c+ "cm.<br>");
+c = (a**2 + b**2)**(1/2);
+document.write("Hüpotenuusi pikkus on: "+ c+ "cm.<br>");
+    </script>
+</body>
+
+</html>

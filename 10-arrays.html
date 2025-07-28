@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-Array</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 2px solid red;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Array ehk massiiv</h1>
+    <script>
+        let opilased = ["Marta", "Maile", "Aire", "Piret", "Ristiine", "Annika",
+            "Kersti", "Margit", "Maarja", "Küllike", "Aljona", "Janne", "Kaisa A.", "Katharina",
+            "Maali", "Kaisa R."];
+
+        //Väljastame esimese õpilased
+
+        document.write("Esimene õpilane on: " + opilased[0] + ".<br>");
+        document.write("Neljas õpilane on: " + opilased[3] + ".<br>");
+        let elementideArv = opilased.length;  // lenght on omadus ehk property
+        document.write("Selles massivis on " + elementideArv + " elementi.<br>");
+        document.write("Viimane õpilane loetelus on: " + opilased[elementideArv - 1] + ".<br>");
+        document.write("Viimane on alati " + opilased[opilased.length - 1] + ".<br>");
+
+        // opilased[12] = "Kaisa Arge";
+        //  opilased[15] = "Kaisa Raja";
+        document.write("<h2> Õpilaste nimekiri</h2>");
+        // Kas nimed on õigesti ; väljastame kõik nimed
+        for (let i = 0; i < opilased.length; i++) {
+
+            document.write((i + 1) + ". õpilane on " + opilased[i] + ".<br>");
+        }
+
+        document.write("<h2> Õpilaste nimekiri tähestikulises järjestuses</h2>");
+        opilased.sort();  // sorteeri massiiv
+        // document.write((i+1) + ". õpilane on " + opilased.sort(i)[i] + ".<br>");
+        // opilased.reverse();    // "keera tagurpidi" massiivi elementide järjekord
+       //  opilased.push("Uus Õpilane");  // element lisatakse massiivi lõppu
+        // opilased.pop(); // viimane element eemaldatakse
+        // opilased.shift(); // eemaldatakse esimene
+        i = 0;  // korrektne oleks kirjutada "let"-iga
+        while (i < opilased.length) {
+            document.write((++i) + ". õpilane on " + opilased[i - 1] + ".<br>");
+        }
+
+
+        document.write("<h2> Õpilaste nimekiri tähestikulises järjestuses tabelina</h2>");
+
+        let k = 0;
+        let opilasteTabel = "";  // algselt tühi
+        // document.write("<table>");
+        opilasteTabel += "<table>";
+        while (k < opilased.length) {
+            // document.write("<tr><td>" + (++k) + "</td><td>" + opilased[k-1] + "</td></tr>");
+            opilasteTabel += "<tr><td>" + (++k) + "</td><td>" + opilased[k - 1] + "</td></tr>";
+        }
+        // document.write("<table>");
+        opilasteTabel += "</table>";
+        document.write(opilasteTabel);
+
+        document.write("<h2> Massiivide ühendamine</h2>");
+        // teine massiiv
+        let opetajad = ["Pauliine", "Peeter", "Toomas"];
+        //ühendame 2 massiivi üheks massiiviks
+        let kursus = opilased.concat(opetajad);     // concatenate - sidurdamine
+        document.write("Uues massiivis on " + kursus.length + ".<br>");
+        document.write("Kursuse liikmed " + kursus.toString() + "<br>"); // konventeeri stringiks
+        document.write("Kursuse liikmed " + kursus.join(", ") + "<br>"); // tee stringiks, aga määra ise eraldaja
+        document.write("Kursuse liikmed " + kursus.join("<br>") + "<br>");
+
+        document.write("<h2>Massiivist otsimine</h2>");
+        //otsimine, true false vastus, kas otsitaav string on massiivis
+
+        let otsitav = "Kaisa"; // NB!  tõstutundlik
+        document.write("Täiesti sama sõnana: otsitav väärtus: <b>" + otsitav + "</b>- kas see leidus? " + kursus.includes(otsitav) + ".<br>");
+     
+        // mitte tõstutundlik otsimine terve stringina
+        let nimiEsineb= false; 
+        let p=0;
+        while(p < kursus.length) {
+            if(kursus[p].toLowerCase() == otsitav.toLowerCase()) {
+                nimiEsineb = true;
+                break;
+            } 
+            p++;
+        }
+        if (nimiEsineb) {
+            document.write("Kogu sama sõnana otsitav väärtus: <b>" + otsitav + "</b> - leidus meie massiivis.<br>");
+        } else {
+            document.write("Kogu sama sõnana otsitav väärtust: <b>" + otsitav + "</b> - ei leidunud meie massiivist.<br>");
+        }
+
+        // kas tekst esineb massiivi elemendi sees
+        nimiEsineb= false; 
+       p=0;
+        while(p < kursus.length) {
+            if(kursus[p].toLowerCase().indexOf(otsitav.toLowerCase()>0)) {
+                nimiEsineb = true;
+                break;
+            } 
+            p++;
+        }
+        if (nimiEsineb) {
+            document.write("Otsitav väärtus osana sõnast: <b>" + otsitav + "</b> - leidus meie massiivis.<br>");
+        } else {
+            document.write("Otsitav väärtust osana sõnast: <b>" + otsitav + "</b> - ei leidunud meie massiivist.<br>");
+        }
+
+    </script>
+</body>
+
+</html>

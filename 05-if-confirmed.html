@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-if-confirmed</title>
+</head>
+
+<body>
+    <h1> If lause ja confirm</h1>
+    <script>
+        let heaMagamine = confirm("Kas Sa magasid hästi?");
+        let vastus;
+        if (heaMagamine)  {
+             document.write("Rõõm teada!");
+} else {
+    document.write("Kurb kuulda!")
+    vastus = prompt("Mis juhtus, miks magasid halvasti?");
+    document.write("Väga kahju, et " + vastus + "<br> .");
+}
+
+document.write("<hr>");
+let onMees = confirm("Kas sa oled mees?");
+let sugu;
+sugu = (onMees) ? "mees" : "naine";
+// sugu = (onMees == true) ? "mees" : "naine";
+document.write("Sa oled " + sugu + "<br>");
+
+
+/*  if lause, kaks tingimust sees, kui sa oled naine ja magasid hästi, siis oli iluuni
+mees magasid hästi - mine raiu puid 
+muudel juhtudel  - püüa täna õhtul varem magama minna */ 
+if (sugu == "naine" && heaMagamine) {   // sugu !onMees ; 
+    document.write("Sul oli iluuni!");
+} else if (onMees && heaMagamine) {
+    document.write("Mine raiu puid!");
+}
+else {
+    document.write("Püüa täna õhtul varem magama minna!")
+}
+
+
+    </script>
+</body>
+
+</html>

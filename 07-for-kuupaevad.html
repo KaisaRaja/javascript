@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="et>
+<head>
+    <meta charset=" UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07 For-tsükkel ja kuupäevad</title>
+<style>
+
+</style>
+</head>
+
+<body>
+    <h1>For-tsükkel ja kuupäevad</h1>
+    <script>
+        /* Kui on hommik, siis ütle 3 korda "Tere hommikust!".
+         Kui on lõuna, siis ütle 4 korda "Tere päevast!".
+         Kui on õhtu, siis ütle 5 korda "Tere õhtust!". */
+
+        let tervitus;
+        let kordadeArv;
+        let d = new Date(); // kuupäev on objekt   , kui ei anna väärtusi, siis d on praegune kuupäev ja kellaaeg
+        document.write(d);
+        document.write(d.getFullYear());
+        let praeguneAasta = d.getFullYear();
+        /* praeguneAasta = 2001; testimiseks muudame muutuja väärtust käsitsi */
+        document.write("Praegu on aasta " + praeguneAasta + ".<br>");
+
+        //Kas praegu on liigaasta
+        if (praeguneAasta % 4 == 0) {
+            document.write("On liigaasta.<br>")
+        } else {
+            document.write("Ei ole liigaasta.<br>")
+        }
+        document.write("<h2>Tervituse leidmine </h2><br>");
+        let tunnid = d.getHours();   // võtame hetke tundide numbri
+        document.write("Praegu on tundide number " + tunnid + ".<br>");
+
+
+        tunnid = 14;
+
+        if (tunnid <= 11 && tunnid >= 5) {
+            document.write("Tere hommikust!<br>");
+            tervitus = "Tere hommikust";
+            kordadeArv = 3;
+        }
+        else if (tunnid > 11 && tunnid <= 17) {
+            document.write("Tere päevast<br>");
+            tervitus = "Tere päevast";
+            kordadeArv = 4;
+        } else {
+            document.write("Tere õhtust<br>");
+            tervitus = "Tere õhtust";
+            kordadeArv = 5;
+        }
+        document.write(tervitus + ", mõnusat olemist<br>");
+
+        document.write("<h2>Tervituse kordamine </h2><br>");
+        for (let i = 1; i <= kordadeArv; i++) {
+            document.write(i + ".korda: " + tervitus + ".<br>");
+        }
+
+        document.write("<h2>Tervituse kordamine loendina </h2><br>");
+     document.write("<ol>");
+        for (let i = 1; i <= kordadeArv; i++) {
+            document.write("<li>" + tervitus + ".</li>");
+        }
+            document.write("</ol>");
+    
+    </script>
+</body>
+
+</html>

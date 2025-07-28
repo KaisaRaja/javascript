@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-Strings</title>
+</head>
+
+<body>
+    <h1>Strings</h1>
+    <script>
+        let tekst = "Täna on kolmapäev, mis on tore päev, on tore päev!";
+
+        let markideArv = tekst.length;  // teksti pikkuse leidmine, omadus ehk property
+        document.write("Tekstis on " + markideArv + " märki.<br>");
+
+        document.write(tekst.toUpperCase() + " .<br>"); // meetodi kasutamine
+
+        let sonad = tekst.split(" "); // teksti lammutamine massiivi elementideks
+        document.write(sonad.join(" * ")); // lihtsalt massiivi sisu näitamiseks
+        document.write("<hr>");
+        // Väljasta stringi esimene märk
+        document.write("<b>Väljasta stringi esimene märk </b><br>");
+        document.write("Esimene märk on " + tekst.charAt(0) + " .<br>"); // stringimeetod chatAt()
+        document.write("Esimene märk massiivist on " + tekst[0] + " .<br>"); // otse massiivist []
+
+        document.write("<b>Väljasta stringi viimane märk </b><br>");
+        document.write("Viimane märk on " + tekst.charAt(tekst.length - 1) + ".<br>");
+        document.write("<hr>");
+        // Otsimine
+        document.write("<b>Otsimine sõna algusest</b><br>");
+        // Kas tekstis on sõna päev? 
+        let otsitavSona = "päev";
+        let pos = tekst.indexOf(otsitavSona);
+        document.write("Sõna " + otsitavSona + " algab " + pos + " positsioonist.<br>");
+
+        document.write("<b>Otsimine tagantpoolt </b><br>");
+        let pos1 = tekst.lastIndexOf(otsitavSona);
+        document.write("Sõna " + otsitavSona + " algab " + pos1 + " positsioonist.<br>");
+        document.write("<hr>");
+        if (pos > -1) {
+            if (pos == pos1) {
+                document.write("Otsitav sõna esineb üks kord.<br>");
+            } else {
+                document.write("Otsitav sõna esineb mitu korda.<br>");
+            }
+        } else {
+            document.write("Otsitavat sõna ei esine.<br>");
+        }
+        document.write("<hr>");
+        document.write("<h3>Alamstringid</h3><br>");
+        // 1. slice(alguspositsioon, kuni positsioonini)
+        let fraas = tekst.slice(0, 2);
+        document.write("Alamstring algusest lugedes on:<b> " + fraas + "</b>.<br>");
+        // lõpust kümme viimast märki
+        let fraas2 = tekst.slice(-10);
+        document.write("Lõpust loetuna alamstring on:<b> " + fraas2 + "</b>.<br>");
+
+        document.write("<hr>");
+        document.write("<h3>Substringid</h3><br>");
+        // 2. substring - sama aga neg indeksid pole lubatud 
+        fraas = tekst.substring(0, 2);
+        document.write("Alamstring on:<b> " + fraas + "</b>.<br>");
+
+        fraas = tekst.substring(10, 10 - 4); // 14 - 10 = 4 märkii
+        document.write("Alamstring on:<b> " + fraas + "</b>.<br>");
+        document.write("<hr>");
+        document.write("<h3>Substr (pigem mitte harjutada kasutamist, vali substring või slice)</h3><br>");
+        // 3. substr (algpositsioon, mitu märki )
+        fraas = tekst.substr(10, 14); // alates 10ndast positsioonist 14 märki
+        document.write("Substr kasutades kasutades alates 10ndast kohast võttes 14 tähemärki on alamstring :<b> " + fraas + "</b>.<br>");
+        fraas = tekst.substr(-10, 14); // alates 10ndast positsioonist 14 märki
+        document.write("Substr kasutades tagantpoolt miinusega pannes on alamstring :<b> " + fraas + "</b>.<br>");
+       
+        document.write("<hr>");
+        document.write("<h2>Isikukood </h2><br>");
+        // Deklareerime isikukoodi ja väljastame inimese sugu (esimene märk)
+        let ik = "38910230123";
+        let esimeneMark = ik.charAt(0);
+        // saab ka nii : esimeneMark = ik.substring(0,1);
+        // ja saab ka nii : esimeneMark = ik[0]; // string kui märkide massiiv
+    
+        document.write("Isikukoodi<b> " + ik + " </b>esimene number on: <b>" + esimeneMark + "</b>.<br>");
+
+        let esimeneMarkArvuna = parseInt(esimeneMark);
+        if (esimeneMarkArvuna %2 == 0) {
+            document.write("Isikukoodi järgi saab öelda, et tegu on <b>naisega</b>.<br>")
+        } else {
+            document.write("Isikukoodi järgi saab öelda, et tegu on <b>mehega</b>.<br>")
+        }
+
+    </script>
+
+</body>
+
+</html>

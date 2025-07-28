@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-dates2</title>
+</head>
+<body>
+    <h1>Kuupäevade kasutamine versioon 2</h1>
+    <script>
+        /* 1. Väljasta tänane kuupäev 28.mai aastal 2025. (Peaprogramm)
+        Funktsioonid:
+        2. Väljasta nädalapäev eesti keeles.
+        3. Kas täna on tööpäev või puhkepäev?
+        4. Kas on hea päev programmeerimiseks? 
+        5. Väljasta aastaaeg eesti keeles.
+        NB! Arvesta seda, et sama saab teha suvalise kuupäevaga.*/ 
+        function nadalapaevad(kuupaev) {
+            let nadalapaevad = ["pühapäev", "esmaspäev", "teisipäev", "kolmapäev", "neljapäev",
+            "reede", "laupäev"];
+            return nadalapaevad[kuupaev.getDay()];
+        }
+        function toopaev(kuupaev) {
+            let onToopaev = true;
+            if (kuupaev.getDay()==0 ||kuupaev.getDay()==6 ) {
+                onToopaev=false;
+            } 
+            return onToopaev;
+        }
+        function programmeerimine(kuupaev) {
+            /* teisipäev, neljapäev on parimad päevad
+            esmaspäev ja reede sobivad 
+            ülejäänud päevadel peaks puhkama*/
+            let hinnang= "ei ole hea";
+            let paevanr=kuupaev.getDay(); // mitmes päev nädalas
+            if(paevanr>=2 && paevanr<=4) {
+                hinnang="parim";
+            }
+            if(paevanr ==1 || paevanr == 5) {
+                hinnang="hea";
+            }
+            return hinnang;
+        }
+
+        function aastaaeg(kuupaev){
+            let kuunr=kuupaev.getMonth();
+            kuunr++; // kuunumbrid on harjumuspärased
+            let aastaajanimetus="talv";
+            switch(kuunr){
+                case 3:
+                case 4:
+                case 5:
+                    aastaajanimetus="kevad"; break;
+                case 6:
+                case 7:
+                case 8:
+                    aastaajanimetus="suvi"; break;
+                case 9:
+                case 10:
+                case 11:
+                    aastaajanimetus="sügis"; break;
+            } return aastaajanimetus;
+        }
+// PEAPROGRAMM
+        let tana = new Date(); // tänane kuupäev, Date on objekt
+        let tana1 = new Date(); // mäluaadress
+        let kuud= ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", 
+            "juuli", "august", "september", "oktoober", "november", "detsember"];
+       
+        document.write("Täna on " + tana + ".<br>");
+        document.write("Täna on " + tana1 + ".<br>");
+        if (tana== tana1){
+            document.write("Kuupäevad on võrdsed!<br>");
+        } else {
+            document.write("Kuupäevad pole võrdsed!<br>");
+        }
+        document.write("<hr>");
+        document.write("Täna on millisekundites: "+ tana.getTime() + ("<br>")); // aeg ms, mis on möödunud alates 1.1.1970
+        if (tana.getTime== tana1.getTime){  // võrreldakse kuupäevi
+            document.write("Kuupäevad on võrdsed!<br>");
+        } else {
+            document.write("Kuupäevad pole võrdsed.!<br>");
+        }
+        document.write("Täna on: "+ tana.getDate() + "." + kuud[tana.getMonth()] + 
+        " " + tana.getFullYear() + ".aastal, on "); 
+
+        // 2. nädalapäeva funtsioon
+        document.write(nadalapaevad(tana) + ".<br>");
+
+        // Töö või puhkepäev?
+        let paevatyyp=(toopaev(tana))?"tööpäev":"puhkepäev"; // lühike if
+        document.write("On " + paevatyyp + ".<br>");
+
+        //4. Kui hästi sobib programmeerimiseks? 
+        document.write("Täna on " + programmeerimine(tana) + " päev programmeerimiseks!<br>");
+       // 5. Aastaaeg
+       document.write("Praegu on " + aastaaeg(tana) + "!<br>");
+
+
+       document.write("<h2>Katharina kohta:</h2>");
+       let synna= new Date(1988,11,11); // aasta, kuu ja päev, Katharina 11.12.1988
+       document.write("Sündimise päev oli: " + nadalapaevad(synna) + ",")
+       paevatyyp=(toopaev(synna))?"tööpäev":"puhkepäev";
+        document.write("see oli " + paevatyyp + ".<br>");
+        document.write("See päev " + programmeerimine(synna) + " päev programmeerimiseks.<br>");
+        document.write("Õues oli " + aastaaeg(synna) + "!<br>");
+        //Arvutame vanuse
+        let vanus= tana-synna;
+        document.write("Vanus on " + vanus + " millisekundit.<br>");
+        vanus/=1000;  // vanus = vanus/1000
+        document.write("Vanus on " + vanus + " sekundit.<br>");
+        vanus/=86400; // 1 ööpäevas on 86400 sekundit
+        document.write("Vanus on " + vanus.toFixed(0) + " päeva.<br>");
+        vanus/=365.25; // keskmine päevade arv aastas on 365.25 
+        document.write("Vanus on " + vanus.toFixed(2) + " aastat.<br>");
+        document.write("Uuritav inimene on " + Math.floor(vanus) + "-aastane.<br>");
+
+        document.write("<h2>Enda kohta:</h2>");
+       let synna1= new Date(1986,5,25); // aasta, kuu ja päev, Katharina 11.12.1988
+       document.write("Sündimise päev oli: " + nadalapaevad(synna1) + ",")
+       paevatyyp=(toopaev(synna1))?"tööpäev":"puhkepäev";
+        document.write("see oli " + paevatyyp + ".<br>");
+        document.write("See päev " + programmeerimine(synna1) + " päev programmeerimiseks.<br>");
+        document.write("Õues oli " + aastaaeg(synna1) + "!<br>");
+        //Arvutame vanuse
+        vanus= tana-synna1;
+        document.write("Vanus on " + vanus + " millisekundit.<br>");
+        vanus/=1000;  // vanus = vanus/1000
+        document.write("Vanus on " + vanus + " sekundit.<br>");
+        vanus/=86400; // 1 ööpäevas on 86400 sekundit
+        document.write("Vanus on " + vanus.toFixed(0) + " päeva.<br>");
+        vanus/=365.25; // keskmine päevade arv aastas on 365.25 
+        document.write("Vanus on " + vanus.toFixed(2) + " aastat.<br>");
+        document.write("Uuritav inimene on " + Math.floor(vanus) + "-aastane.<br>");
+    </script>
+</body>
+</html>

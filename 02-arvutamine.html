@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-Arvutamine</title>
+</head>
+
+<body>
+    <h1>Arvutamine</h1>
+    <script>
+        let year = 2025;
+        let reminder = year % 4;
+        document.write("Aasta on: " + year + ", liigaasta arvutamine jääk: " + reminder + ".");
+    </script>
+
+    <h2>Matemaatika</h2>
+    <script>
+        let arv1 = 100; //deklareerin ja algväärtustan
+        let arv2 = 13;
+        document.write("Arvud, mida kasutan, on: " + arv1 + " ja " + arv2 + ".<br>");
+
+        let summa = arv1 + arv2;
+        document.write("Arvude summa on: " + summa + ".<br>");
+
+        let vahe = arv1 - arv2;
+        document.write("Arvude vahe on: " + vahe + ".<br>");
+
+        let reaalarv = 14.783333;
+        document.write("Arv kohakohtadega: " + reaalarv + ".<br>");
+        document.write("Sama arv kahe komakohaga on: " + reaalarv.toFixed(2) + ".<br>");
+        document.write("Sama arv kahekümne komakohaga on: " + reaalarv.toFixed(20) + ".<br>");
+        // Ümardamine
+        reaalarv = Math.round(reaalarv);
+        document.write("Math.round kasutades on see sama reaalarv: " + reaalarv + ".<br>")
+        document.write("Math.round kasutades on see sama reaalarv kahe komakohaga: " + reaalarv.toFixed(2) + ".<br>")
+
+        reaalarv = 14.7833333;
+        let ymardatudArv = Math.round(reaalarv * 1000)/1000;
+        document.write("Math.round kasutades on see sama ümardatud arv: " + ymardatudArv + ".<br>");
+        let ymardatudArv2 = Math.round(reaalarv * 1000)/1000;
+        document.write("Math.round kasutades on see sama ümardatud arv: " + ymardatudArv2.toFixed(4) + ".<br>");
+
+
+        document.write("<h3>Töötuskindlustuse arvutamine</h3>");
+            let brutopalk = 1566.66;
+            let tootuskindlustus = brutopalk * 0.016;     // 1,6 %  brutopalgast
+            document.write("Pead maksma töötuskindlustust : " + tootuskindlustus.toFixed(2) + "€.<br>");
+
+            tootuskindlustus = Math.round(tootuskindlustus*100) /100;
+            document.write("Pead maksma töötuskindlustust ümardatud : " + tootuskindlustus.toFixed(4) + "€.<br>");
+
+    </script>
+
+</body>
+
+</html>

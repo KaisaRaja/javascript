@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-IF</title>
+</head>
+<body>
+    <h1>If laused</h1>
+    <script>
+        // kasutaja sisestab arvu, kas jagub 7-ga
+
+        let a, b;
+        a = parseInt(prompt("Sisesta üks täisarv"));
+        document.write("Sisestasid arvu: <b>" + a + "</b>. <br> ");
+        if (a ==0) {
+            document.write("Arv on null, st ei jagu 7ga.<br>");
+        }
+        else if (a % 7 == 0) {
+            document.write("Arv jagus seitsmega<br>");
+        }
+        else {
+            document.write("Arv ei jagu seitsmega, jagamise jääk on: " + a % 7 + ". <br>");
+        }
+
+        if (a % 2 == 0) {
+            document.write("Sisestatud arv on paarisarv.")
+        }
+        else {
+            document.write("Sisestatud arv on paaritu arv.")
+        }
+
+        document.write("<hr><h2>Temperatuur toas</h2>");
+        /*  seletus siia, hea nii. pseudokood.
+        Temperatuurivahemikud, millal on jahe, norm ja palav.
+        <21 - jahe
+        21-25 - norm
+        >25 palav */ 
+        let temperatuur = parseInt(prompt("Sisesta toatemperatuur."));
+        document.write("Sisestasid toatemperatuuri: <b>" + temperatuur + "</b> .<br>")
+        if (temperatuur <=21) {
+            document.write("Toas on jahe!");
+        } else if (temperatuur <=25) {
+            document.write("Toas on normaalne temperatuur!");
+        }
+        else {
+            document.write("Toas on palav!");
+        }
+       /*  !isNaN(temperatuur) */ 
+
+        document.write ("<hr><h2>Kaks tingimust </h2>");
+        // kas see arv on > 100 ja arv jagub 3ga
+        if ((a> 100) && (a % 3 == 0 )) {
+            document.write("Mõlemad tingimused on täidetud");
+        } else {
+            document.write("Vähemalt 1 tingimus ei ole täidetud");
+        }
+        
+
+
+
+    </script>
+</body>
+</html>

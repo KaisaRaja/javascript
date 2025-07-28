@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13-Functions</title>
+</head>
+
+<body>
+    <h1>Functions ehk funktsioonid</h1>
+    <script>
+        function sendMessage(msg) {
+            document.write("<p>" + msg + "</p>");
+
+        }
+        sendMessage("Mingi tekst, mida näidata lehel");
+        sendMessage("Veel mingi tekst!");
+        // korruta kaks arvu
+        function korruta(inNumber1, inNumber2) {
+            let tulemus; // lokaalne muutuja
+            tulemus = inNumber1 * inNumber2;
+            return tulemus;   // tagasta tulemus peaprogrammile
+        }
+
+
+        function osakaal(inTervik, inOsa) {
+            let tulemus = 2;
+            tulemus = inOsa / inTervik * 100;
+       return tulemus;
+        }
+
+        //Peaprogramm
+        let aastaPalk = korruta(1000, 12);
+        sendMessage("Minu aastapalk on<b> " + aastaPalk + " €.</b><br>");
+
+        // Näita teise numbri osakaalu esimesest
+        sendMessage( osakaal (1000, 250));
+
+
+        // Isikukoodi asjad funktsioonideks, kui tahad teha 
+        
+
+
+    </script>
+</body>
+
+</html>

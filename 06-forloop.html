@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-For-loop</title>
+</head>
+<body>
+    <h1>For-loop / korduslaused</h1>
+<script>
+     /* Tervita 5 korda */ 
+    for(let i=1; i<=15; i++) {
+        // mitmenda korduse juures me oleme, i on tsüklimuutuja
+        document.write("Tere päevast " + i+ ".korda<br>");
+    }
+    document.write("<hr><h2>Tsükkel tsükkli sees.</h2>");
+
+    for(let i=1; i<=5; i++) {
+        // mitmenda korduse juures me oleme, i on tsüklimuutuja
+        document.write("Tere päevast " + i+ ".korda");
+        for (let j=1; j<=i; j++)   { // sisemine tsükkel, mis väljastab hüüumürki 
+         document.write("!");
+    } document.write("<br>");
+}
+document.write("<hr><h2>Tagurpidi tsükkel</h2>");
+    for(let i=10; i>0; i--) {
+        // mitmenda korduse juures me oleme, i on tsüklimuutuja
+        if (i ==1) {
+        document.write(i+ ".<br>");
+    } else {
+        document.write(i+ ", ");
+    }
+}
+document.write("<hr><h2>Paarisarvud 20 kuni 40</h2>");
+for (let i = 20; i<=40; i+=2) {
+    if (i ==40) {
+        document.write(i+ ".<br>");
+    } else {
+        document.write(i+ ", ");
+    }
+}
+document.write("<hr><h2>Paarisarvud 20 kuni 40, aga 30 jääb vahele</h2>");
+for (let i = 20; i<=40; i+=2) {
+    if (i == 30) {continue};
+    if (i ==40) {
+        document.write(i+ ".<br>");
+    } else {
+        document.write(i+ ", ");
+    }
+}
+
+document.write("<hr><h2>Paarisarvud 20 kuni 40, aga 30 lõpeta enne 30</h2>");
+for (let i = 20; i<=40; i+=2) {
+    if (i == 30) {break};
+    if (i ==40) {
+        document.write(i+ ".<br>");
+    } else {
+        document.write(i+ ", ");
+    }
+}
+</script>
+</body>
+</html>

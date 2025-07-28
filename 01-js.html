@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-JS</title>
+</head>
+
+<body>
+    <h1>Minu esimene JavaScripti kood</h1>
+    <script>
+        alert("Tere hommikust!");
+        console.log("Tere jälle!");
+        document.write("Tere taaskord!")
+        document.write("Küll on ilus päev!<br>");
+        document.write("Päikseline ilus päev!");
+        document.write("<div style='color:red;'>Täna on teisipäev!</div>");
+
+        document.write("<h2>Muutujate kasutamine</h2>")
+        var muutuja;
+        document.write("Selle muutuja väärtus on <b>" + muutuja + "</b>.<br>");
+        // sidurdamine ehk saame panna 3 stringi omavahel kokku, tehakse üheks, concatenate ingl k. 
+
+        muutuja = 100;
+        document.write("Selle muutuja väärtus on nüüd <b>" + muutuja + "</b>.<br>");0
+
+        muutuja = 200;
+        document.write("Selle muutuja väärtus on nüüd hoopis <b>" + muutuja + "</b>.<br>");
+
+        let muutuja2;
+        muutuja2= 300;
+        document.write("Selle muutuja väärtus on nüüd mul <b>" + muutuja2 + "</b>.<br>");
+        let muutuja3;
+        muutuja3= 400;
+        document.write("Selle muutuja väärtus on nüüd mul selline: <b>" + muutuja3 + "</b>.<br>");document.write("Selle muutuja väärtus on nüüd mul selline: <b>" + muutuja3 + "</b>.<br>");
+
+
+        document.write("Selle muutuja tüüp on nüüd <b>" + typeof(muutuja3) + "</b>.<br>");
+
+        muutuja ="Tere, Kaisa!";
+        document.write("<hr> Selle muutuja väärtus on nüüd mul <b>" + muutuja + "</b>.<br>");
+        document.write("Selle muutuja tüüp on nüüd: <b>" + typeof(muutuja) + "</b><br>");
+
+        muutuja ="Tere, mu tore Kaisa!";
+        document.write("<hr> Selle muutuja väärtus on nüüd mul <b>\"" + muutuja + "\"</b>.<br>");
+        document.write("Selle muutuja tüüp on nüüd: <b>" + typeof(muutuja) + "</b><br>");
+
+        muutuja =true;
+        document.write("<hr> Selle muutuja väärtus on nüüd mul <b>" + muutuja + "</b>.<br>");
+        document.write("Selle muutuja tüüp on nüüd: <b>" + typeof(muutuja) + "</b><br>");
+
+        document.write("<hr> <h3> Muutuja väljastamine teistmoodi</h3>");
+            document.write(`Muutuja väärtuse väljastamine ${muutuja}<br>`);
+
+            let arv = 200;
+            document.write(`Uue muutuja väärtuse väljastamine ${arv}<br>`);
+
+    </script>
+</body>
+
+</html>

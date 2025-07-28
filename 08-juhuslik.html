@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 - juhuslik number</title>
+</head>
+<body>
+    <h1>Juhuslik number</h1>
+    <script>
+        let juhuslik;   // deklareerin
+        juhuslik = Math.random();   // väärtustan ehk annan väärtuse
+        // Math objekti meetod, genereerib juhusliku arvu vahemikus 0-1 
+        document.write("Genereeritud juhuslik arv: " + juhuslik + ".<br>");
+
+        // Genereeri juhuslik arv vahemikus 2-5 
+        let min = 12; 
+        let max = 25; 
+        let arv = Math.floor(juhuslik * (max-min + 1)) + min;
+        document.write("Genereeritud arv vahemikus " + min +  " ja " + max + " on: <b>" + arv+ "</b>.<br>");
+
+        // Veedera täringut 10 korda ja väljasta selle tulemused
+        document.write("<h2>Veeretame täringut</h2>");
+
+       
+        let tulemus;
+        let i; // tsükli muutuja, loendur
+        min=1;
+        max=6;
+
+        // for - loop-iga 10 kordust
+        // igas korduses saame ühe juhusliku numbri "täringu pealt" - > peame leisma vahemikus 1-6
+    
+        for (i=1; i<=10; i++) {
+            tulemus = Math.floor(Math.random() * (max-min + 1)) + min;
+            document.write(i + ". viske tulemus on " + tulemus + ".<br>");
+        }
+
+        document.write("<h2>Loosinumbrid ehk valim suuremast hulgast</h2>");
+        // pesudokood ehk mida vaja oleks teha 
+        /* hulga suurus on 10 elementi
+        peame välja valima 3 unikaalset elementi      
+           */ 
+
+           
+    </script>
+
+</body>
+</html>
